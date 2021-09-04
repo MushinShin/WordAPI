@@ -12,20 +12,16 @@ const SYNONYMS = "synonyms";
 const DEFINITION = "definitions";
 
 // Not Recommended to hard code the api "key account"
-const API_URL = "";
-const API_KEY = "ffedebd68bmshb2009720c590987p1410f7jsneadd98150c2a";
-const API_HOST = "wordsapiv1.p.rapidapi.com";
+const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
 
 const ul = document.createElement("ul");
 const WORD_INFO = document.createElement("li");
 
 const searchSimilar = async () => {
   try {
-    const respose = await fetch(
-      "https://wordsapiv1.p.mashape.com/words/lovely"
-    );
+    const response = await fetch(`${API_URL}`);
 
-    const data = await Response.json();
+    const data = await response.json();
     WORD_INFO.innerHTML = data.definition;
 
     console.log(WORD_INFO);
