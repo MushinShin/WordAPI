@@ -1,0 +1,73 @@
+:root {
+  --color-accent: #201816;
+  --border-radius: 20px;
+}
+
+/* -------------TYPOGRAPHY--------------------*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Allison", cursive;
+  color: var(--color-body);
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
+
+h1 {
+  /* 1 time html font size html  */
+  margin-top: 0rem;
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  font-size: 15rem;
+}
+
+/* -------------INPUT----------------- */
+.input {
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  color: var(--color-headings);
+  font-size: 2rem;
+  outline: 0;
+  padding: 1.5rem 3.5rem;
+}
+
+::placeholder {
+  color: #cdcbd7;
+}
+
+@media screen and (min-width: 1024px) {
+  .input {
+    font-size: 1.5rem;
+  }
+}
+
+/* ----------------CONTEINER----------------- */
+.conteiner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ------------------ICON---------------------- */
+
+/* BUTTOn */
+.butto {
+  border-radius: var(--border-radius);
+  border: 0;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 2rem 4vw;
+  margin: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.butto--accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
