@@ -4,30 +4,44 @@
 // const DEFINITION = document.getElementById("");
 const SEARCH_BTN = document.getElementById("search_btn");
 const INPUT_FIELD = document.getElementById("input");
+const DISPLAY = document.getElementById("display");
 
-// Search Filter Options
-const SIMILAR_TO = "similarTo";
-const ANTONYMS = "antonyms";
-const SYNONYMS = "synonyms";
-const DEFINITION = "definitions";
-
-// Not Recommended to hard code the api "key account"
-const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
+// Not recomended to hard code the URL
+const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 const ul = document.createElement("ul");
-const WORD_INFO = document.createElement("li");
 
 const searchSimilar = async () => {
   try {
-    const response = await fetch(`${API_URL}`);
+    const response = await fetch(`${API_URL}${INPUT_FIELD.value}`);
 
     const data = await response.json();
-    WORD_INFO.innerHTML = data.definition;
 
-    console.log(WORD_INFO);
+    // Meanings is an array
+    // Object destructuring
+    // const { meanings: meaningArray } = data[0];
+    const meaningArray = [...data[0].meanings];
+    meaningArray.forEach((meaning, i) => {
+      const { definitions } = meaning;
+      const { definition } = definitions[0];
+      //   Creates dinamically li elements inside of the ul
+      const WORD_INFO = document.createElement("li");
+      WORD_INFO.innerHTML = definition;
+      ul.appendChild(WORD_INFO);
+    });
+    // const defMeaning = meaningArray[0];
+
+    // const { definitions } = defMeaning;
+
+    ul.className = "def_Display";
+    DISPLAY.appendChild(ul);
   } catch (error) {
     console.log(error);
   }
 };
 
 SEARCH_BTN.onclick = searchSimilar;
+
+// meaningArray.map((meaning) => {
+// return {meaning.}
+// })
