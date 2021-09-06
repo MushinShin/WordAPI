@@ -29,9 +29,6 @@ const searchSimilar = async () => {
       WORD_INFO.innerHTML = definition;
       ul.appendChild(WORD_INFO);
     });
-    // const defMeaning = meaningArray[0];
-
-    // const { definitions } = defMeaning;
 
     ul.className = "def_Display";
     DISPLAY.appendChild(ul);
