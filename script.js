@@ -37,7 +37,13 @@ const searchSimilar = async () => {
   }
 };
 
+// Handles if the user presses enter when searching
+const handleEnter = (event) => {
+  if (event.which === 13) searchSimilar();
+};
+
 SEARCH_BTN.onclick = searchSimilar;
+input.onkeyup = handleEnter;
 
 // meaningArray.map((meaning) => {
 // return {meaning.}
